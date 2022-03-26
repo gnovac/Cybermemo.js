@@ -201,7 +201,7 @@ const resetGame = () => {
   //1. RESET DECK
   // @description Remove classes from clicked cards & clear openedCards Array in case if is middle of the game
   while (openedCards.length) {
-    openedCards[0].classList.remove("open", "show", "matched");
+    openedCards[0].classList.remove("open", "show", "matched", "disabled");
   }
   openedCardsArr = [];
 
