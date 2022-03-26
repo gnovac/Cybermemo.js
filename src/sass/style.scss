@@ -1,0 +1,286 @@
+@import "./colors";
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  text-align: center;
+  font-size: 3rem;
+  font-family: "Play", sans-serif;
+  background-color: $main;
+}
+
+// Styles for the logo //
+.game-logo {
+  margin: 3rem 0;
+  h1 {
+    font-family: "Orbitron", sans-serif;
+    font-size: calc(2rem + 3vw);
+    span {
+      color: $blue;
+    }
+  }
+}
+
+// Styles for the buttons//
+button {
+  font-family: "Play", sans-serif;
+  clip-path: polygon(0 0, 0 69%, 10% 100%, 100% 100%, 100% 32%, 90% 0);
+  font-size: 3rem;
+  border: none;
+  cursor: pointer;
+}
+
+// Styles for the start window
+.start-modal {
+  position: absolute;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f3e600;
+  z-index: 10;
+
+  &.show-start-modal {
+    display: flex;
+  }
+
+  &__select-box {
+    display: flex;
+  }
+  &__deck-cat {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid black;
+    width: calc(30vw - 3vw);
+    max-width: 200px;
+    height: 20vh;
+    margin: 1rem;
+    cursor: pointer;
+
+    &:hover {
+      border: 1px solid $red;
+    }
+
+    &.selected {
+      border: 1px solid $red;
+    }
+  }
+
+  &__play-btn {
+    width: 100%;
+    max-width: 200px;
+    padding: 1rem;
+    margin: 1rem;
+    height: 60px;
+    background-color: $red;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: $blue;
+    }
+  }
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  width: 85vw;
+  max-width: 700px;
+}
+
+// Styles for the game panel info (moves, timer, starts, reset button)
+.panel-item {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.digit {
+  width: 3rem;
+}
+
+.game-panel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+
+  &__stars {
+    .fa-star {
+      color: $red;
+    }
+  }
+
+  &__reset-btn {
+    position: relative;
+    background-color: $blue;
+    padding: 1rem;
+    width: calc(25% - 1vw);
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: $red;
+    }
+
+    &.disabled {
+      pointer-events: none;
+    }
+  }
+}
+
+.score-panel {
+  &__score-box {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 2rem;
+
+    &.show {
+      display: flex;
+    }
+  }
+  &__scores-display {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    min-height: 100px;
+  }
+}
+
+// Styles for the deck of cards
+.deck {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  height: 70vh;
+  padding: 1rem;
+  margin: 1rem auto;
+  border-radius: 3px;
+  background-color: $gray;
+  box-shadow: 0px 5px 20px 2px rgba(40, 40, 40, 0.7);
+
+  &__card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0;
+    width: calc(25% - 0.7rem);
+    height: calc(25% - 0.7rem);
+    background-color: black;
+    cursor: pointer;
+    border-radius: 3px;
+    transform: rotateY(-180deg);
+    transition: transform 0.8s;
+    box-shadow: 0 4px 10px 0 rgba(40, 40, 40, 0.7);
+
+    &.open {
+      transform: rotateY(0);
+      background-color: $blue;
+      color: #fff;
+      cursor: default;
+    }
+
+    &.show {
+      font-size: 2rem;
+    }
+
+    &.disabled {
+      pointer-events: none;
+    }
+
+    &.matched {
+      background-color: $red;
+    }
+  }
+}
+
+// styles for the congratulations window
+.win-items {
+  margin: 1rem;
+}
+
+.win-modal {
+  position: absolute;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: calc(90% - 1vw);
+  height: calc(35% - 1vw);
+  max-width: 600px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f3e600;
+  z-index: 10;
+
+  &.show-win-modal {
+    display: flex;
+  }
+
+  &__score {
+    font-size: 2.5rem;
+  }
+
+  &__stars {
+    color: $red;
+  }
+
+  &__yes-btn,
+  &__no-btn {
+    width: 40%;
+    max-width: 150px;
+    padding: 1rem;
+    margin: 1rem;
+    height: 50px;
+    line-height: 100%;
+    background-color: $red;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: $blue;
+    }
+  }
+}
+
+footer {
+  position: fixed;
+  width: 100vw;
+  bottom: 0;
+  font-size: 2rem;
+  color: #fff;
+  background-color: #000;
+}
+
+// Media queries
+@media (max-width: 576px) {
+  html {
+    font-size: 40%;
+  }
+
+  .container {
+    width: 90vw;
+  }
+
+  .deck {
+    height: 50vh;
+  }
+}

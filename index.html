@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cybermemo.js</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Play&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/907ccae0c7.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="dist/css/style.min.css" />
+  </head>
+
+  <body>
+    <div class="start-modal show-start-modal">
+      <h3 class="start-modal__header">SELECT DECK</h3>
+      <div class="start-modal__select-box">
+        <div class="start-modal__deck-cat games selected">
+          <i class="fas fa-gamepad"></i>Games
+        </div>
+        <div class="start-modal__deck-cat movies">
+          <i class="fas fa-film"></i>Movies
+        </div>
+        <div class="start-modal__deck-cat series">
+          <i class="fas fa-book"></i>Books
+        </div>
+      </div>
+      <button class="start-modal__play-btn">PLAY</button>
+    </div>
+
+    <header class="game-logo">
+      <h1>CYBER<span>MEMO</span>.js</h1>
+    </header>
+    <section class="game-panel container">
+      <div class="game-panel__moves panel-item">
+        Moves: <span class="moves-display digit">0</span>
+      </div>
+      <div class="game-panel__timer panel-item">
+        <i class="fas fa-stopwatch"></i
+        ><span class="time-display digit">0</span>
+      </div>
+      <div class="game-panel__stars panel-item">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+      </div>
+      <button class="game-panel__reset-btn panel-item">RESET</button>
+    </section>
+
+    <div class="deck container">
+      <div class="deck__card"></div>
+      <div class="deck__card"></div>
+      <div class="deck__card"></div>
+      <div class="deck__card"></div>
+      <div class="deck__card"></div>
+      <div class="deck__card"></div>
+      <div class="deck__card"></div>
+      <div class="deck__card"></div>
+      <div class="deck__card"></div>
+      <div class="deck__card"></div>
+      <div class="deck__card"></div>
+      <div class="deck__card"></div>
+      <div class="deck__card"></div>
+      <div class="deck__card"></div>
+      <div class="deck__card"></div>
+      <div class="deck__card"></div>
+    </div>
+
+    <div class="win-modal">
+      <div class="win-modal__content">
+        <h3 class="win-modal__header win-items">You completed game ✌🏆</h3>
+        <div class="win-modal__body">
+          <p class="win-modal__stars win-items"></p>
+          <p class="win-modal__score win-items"></p>
+          <p>Would you like to play again?</p>
+          <button class="win-modal__yes-btn">YES</button>
+          <button class="win-modal__no-btn">NO</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="game-panel__score-box">Best Score: <span class="score-display">0</span></div> -->
+
+    <div class="score-panel__score-box">
+      <h3>FASTEST TIMES</h3>
+      <ol class="score-panel__scores-display"></ol>
+    </div>
+
+    <footer>&copy; 2022 Grzegorz Nowak</footer>
+
+    <script src="dist/js/app.min.js"></script>
+  </body>
+</html>
