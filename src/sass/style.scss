@@ -19,7 +19,7 @@ body {
 
 // Styles for the logo //
 .game-logo {
-  margin: 3rem 0;
+  margin: 1rem 0;
   h1 {
     font-family: "Orbitron", sans-serif;
     font-size: calc(2rem + 3vw);
@@ -101,7 +101,7 @@ button {
   justify-content: center;
   align-items: center;
   margin: 0 auto;
-  width: 85vw;
+  width: 90vw;
   max-width: 700px;
 }
 
@@ -170,7 +170,7 @@ button {
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
-  height: 70vh;
+  height: 45vh;
   padding: 1rem;
   margin: 1rem auto;
   border-radius: 3px;
@@ -224,12 +224,13 @@ button {
   align-items: center;
   flex-direction: column;
   width: calc(90% - 1vw);
-  height: calc(35% - 1vw);
+  height: calc(40% - 1vw);
   max-width: 600px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #f3e600;
+  border: 1px solid black;
   z-index: 10;
 
   &.show-win-modal {
@@ -275,12 +276,24 @@ footer {
   html {
     font-size: 40%;
   }
+}
 
-  .container {
-    width: 90vw;
+@media (min-width: 576px) {
+  html {
+    font-size: 50%;
   }
 
   .deck {
-    height: 50vh;
+    height: 60vh;
+  }
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 62.5%;
+  }
+
+    .deck {
+    height: 70vh;
   }
 }
