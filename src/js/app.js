@@ -73,10 +73,12 @@ const selectDeck = (e) => {
 };
 
 
-// @description Set times to localStorage
+// @description Set times and player name to localStorage
 const addTimes = () => {
-  results.push(timeCounter);
-  results.sort((a, b) => a - b);
+  const name = prompt("You got a highscore! Enter name:");
+  const newScore = { timeCounter, name };
+  results.push(newScore);
+  results.sort((a, b) => a.timeCounter - b.timeCounter);
   localStorage.setItem("times", JSON.stringify(results));
 };
   
@@ -84,7 +86,7 @@ const addTimes = () => {
 const showHighTimes = () => {
     const retrievedTimes = JSON.parse(localStorage.getItem('times')) ?? [];
     bestTimesList.innerHTML = retrievedTimes.map(
-      (time) => `<li>${time} sec</li>`
+      (time) => `<li>${time.name} - ${time.timeCounter} sec</li>`
     ).slice(0, 5).join("");
 };
 
@@ -171,10 +173,8 @@ const startGame = (e) => {
         }
 
         if (matchedCards.length === cardsArr.length) {
-          console.log("you won");
           completeGame();
         }
-
         openedCardsArr = [];
       } else {
         //@description When cards don't matched
