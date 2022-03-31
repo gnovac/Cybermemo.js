@@ -75,7 +75,7 @@ const selectDeck = (e) => {
 
 // @description Set times and player name to localStorage
 const addTimes = () => {
-  const name = prompt("You got a highscore! Enter name:");
+  const name = prompt("You finished a game! Enter name:");
   const newScore = { timeCounter, name };
   results.push(newScore);
   results.sort((a, b) => a.timeCounter - b.timeCounter);
